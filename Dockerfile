@@ -21,7 +21,6 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
 # COPY .env.production.sample .env.production
-RUN yarn build:css
 RUN yarn build
 
 # 3. Install dependencies production only
@@ -49,7 +48,6 @@ COPY package.json ./
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
 COPY --from=prod_deps /app/node_modules ./node_modules
-COPY next-env.d.ts ./next-env.d.ts
 COPY next.config.js ./next.config.js
 
 EXPOSE 5175
