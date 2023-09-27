@@ -1,0 +1,288 @@
+html,
+body {
+  min-height: 100%;
+}
+
+#__next {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+code {
+  font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+  padding: 0.1rem 0.4rem;
+  font-size: 90%;
+  color: #d400ff;
+  border-radius: 0.1335rem;
+}
+
+code:not([class*='language-']):before,
+code:not([class*='language-']):after {
+  content: '`';
+}
+
+code[class*='language-'] {
+  padding: 0;
+}
+
+.weather {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  margin-top: 1rem;
+  background-image: linear-gradient(to bottom right, #333);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.bg-set {
+  background-color: #2f64f98f;
+}
+
+.top-buttons {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: #ffffff;
+  font-size: 1.225rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.input-form {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-form-1 {
+  display: flex;
+  margin-left: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+
+}
+
+.input-item {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  width: 100%;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 500px;
+}
+
+.UIsearch {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  color: #ffffff;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.UIsearch:hover {
+  --transform-scale-x: 1.25;
+  --transform-scale-y: 1.25;
+}
+
+.UIlocation {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.UIlocation:hover {
+  --transform-scale-x: 1.25;
+  --transform-scale-y: 1.25;
+}
+
+.input-imperial {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.btn-imperial {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+
+}
+
+.btn-imperial:hover {
+  --transform-scale-x: 1.25;
+  --transform-scale-y: 1.25;
+}
+
+.text-white {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.timeandlocation {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.textformatToLocalTime {
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 200;
+}
+
+.detail {
+  display: flex;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.temperature {
+  display: flex;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temperature {
+  color: #fff;
+}
+
+.temperature-item {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.temperature-item-icon {
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  justify-content: center;
+  align-items: center;
+}
+
+.temperature-item-text {
+  margin-left: 0.25rem;
+  font-weight: 500;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.box-main {
+  display: flex;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-left: 0.5rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-nomal {
+  margin-left: 0.25rem;
+  font-weight: 500;
+}
+
+.font-light {
+  font-weight: 300;
+  margin: 4px
+}
+
+.forecast {
+  display: flex;
+  margin-top: 1.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.forecast-text {
+  color: #ffffff;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-content {
+  display: flex;
+  color: #ffffff;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forecast-content-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+}
+
+.img-css {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 3rem;
+}
