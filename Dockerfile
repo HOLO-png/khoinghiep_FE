@@ -49,6 +49,7 @@ COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
 COPY --from=prod_deps /app/node_modules ./node_modules
 COPY next.config.js ./next.config.js
+COPY .env .env
 
 EXPOSE 5175
 

@@ -7,6 +7,7 @@ module.exports = {
     esmExternals: false,
     jsconfigPaths: true // enables it for both jsconfig.json and tsconfig.json
   },
+  distDir: 'build',
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
