@@ -19,17 +19,16 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         const { phoneNumber, password } = credentials
-        const res = await fetch(`${API_URL}/api/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            phoneNumber,
-            password
-          })
-        })
-        console.log(res)
+        // const res = await fetch(`${API_URL}/api/login`, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify({
+        //     phoneNumber,
+        //     password
+        //   })
+        // })
         const user = await res.json()
         if (user) {
           return user
