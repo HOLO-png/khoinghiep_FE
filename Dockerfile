@@ -1,39 +1,59 @@
-# Install dependencies only when needed
+# 1. Install dependencies only when needed
 FROM node:16-alpine AS deps
 
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn
 
-# Rebuild the source code only when needed
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* ./
+RUN \
+    if [ -f yarn.lock ]; then yarn; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
+
+
+# 2. Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
-
 COPY . .
-
+# This will do the trick, use the corresponding env file for each environment.
+# COPY .env.production.sample .env.production
+RUN yarn build:css
 RUN yarn build
 
-# Production image, copy all the files and run next
-FROM node:16-alpine AS runner
+# 3. Install dependencies production only
+FROM node:16-alpine AS prod_deps
+
 WORKDIR /app
 
-ENV NODE_ENV production
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* ./
+RUN \
+    if [ -f yarn.lock ]; then yarn --prod; \
+    elif [ -f package-lock.json ]; then npm install -omit=dev; \
+    else echo "Lockfile not found." && exit 1; \
+    fi
 
-RUN addgroup --system --gid 1001 bloggroup
-RUN adduser --system --uid 1001 bloguser
+# 3. Production image, copy all the files and run next
+FROM node:16-alpine
 
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY package.json ./
+
+COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+COPY --from=prod_deps /app/node_modules ./node_modules
+COPY next-env.d.ts ./next-env.d.ts
+COPY next.config.js ./next.config.js
 
-COPY --from=builder --chown=bloguser:bloggroup /app/.next/static ./.next/static
+EXPOSE 5175
 
-USER bloguser
+ENV PORT 5175
 
-EXPOSE 3000
-
-ENV PORT 3000
-
-CMD ["npx", "yarn", "start"]
+CMD ["yarn", "start"]
