@@ -1,6 +1,4 @@
-// export const API_URL = 'https://nodejs-api-7u44.onrender.com'
-
-export const API_URL = 'http://localhost:8080'
+export const API_URL = 'https://backend-khoinghiep.onrender.com'
 
 export const LOGIN_ENDPOINT = '/api/login'
 
@@ -19,7 +17,3 @@ export const NOTIFIES_ENDPOINT = '/api/notifies'
 export const USER_ENDPOINT = '/api/user'
 
 export const DEVICE_ENDPOINT = '/api/drives'
-
-
-
-
