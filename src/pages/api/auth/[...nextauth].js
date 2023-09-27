@@ -29,7 +29,7 @@ export const authOptions = {
             password
           })
         })
-        console.log(res);
+        console.log(res)
         const user = await res.json()
         if (user) {
           return user
@@ -39,23 +39,9 @@ export const authOptions = {
       }
     })
   ],
-
-  callbacks: {
-    // jwt({ token, trigger, session, user }) {
-    //   if (trigger === "update") {
-    //     token = { user: session }
-    //     return { ...user, ...session }
-    //   }
-    //   return { ...user, ...token }
-    // },
-    // async session({ session, token, user }) {
-    //   session.user = token
-    //   return session
-    // }
-  },
   pages: {
     signIn: '/auth/login'
-  },
+  }
 }
 
 export default NextAuth(authOptions)
