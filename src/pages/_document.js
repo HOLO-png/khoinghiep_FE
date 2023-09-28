@@ -23,6 +23,7 @@ class CustomDocument extends Document {
           />
           <link rel='apple-touch-icon' sizes='180x180' href='/images/apple-touch-icon.png' />
           <link rel='shortcut icon' href='/images/favicon.png' />
+          <meta name='google-site-verification' content='T0iSZnRLFZEHCncZ3bMWvqy2V-LmknmEOyzc7laGb8k' />
         </Head>
         <body>
           <Main />
@@ -32,13 +33,13 @@ class CustomDocument extends Document {
     )
   }
 }
-CustomDocument.getInitialProps = async ctx => {
+CustomDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage
   const cache = createEmotionCache()
   const { extractCriticalToChunks } = createEmotionServer(cache)
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props =>
+      enhanceApp: (App) => (props) =>
         (
           <App
             {...props} // @ts-ignore
@@ -49,7 +50,7 @@ CustomDocument.getInitialProps = async ctx => {
   const initialProps = await Document.getInitialProps(ctx)
   const emotionStyles = extractCriticalToChunks(initialProps.html)
 
-  const emotionStyleTags = emotionStyles.styles.map(style => {
+  const emotionStyleTags = emotionStyles.styles.map((style) => {
     return (
       <style
         key={style.key}
