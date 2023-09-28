@@ -1,5 +1,5 @@
 # 1. Install dependencies only when needed
-FROM node:16-alpine AS deps
+FROM node:18-alpine AS deps
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN \
 
 
 # 2. Rebuild the source code only when needed
-FROM node:16-alpine AS builder
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
@@ -24,7 +24,7 @@ COPY . .
 RUN yarn build
 
 # 3. Install dependencies production only
-FROM node:16-alpine AS prod_deps
+FROM node:18-alpine AS prod_deps
 
 WORKDIR /app
 
@@ -37,7 +37,7 @@ RUN \
     fi
 
 # 3. Production image, copy all the files and run next
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
